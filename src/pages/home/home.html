@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <connection></connection>
+    <ion-title>Broadcasts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let card of posts | async">
+    <ion-card-content>
+      <ion-card-title>
+        {{card.title}}
+      </ion-card-title>
+      <p>
+        {{card.body}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

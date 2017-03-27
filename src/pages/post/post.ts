@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { AngularFire } from 'angularfire2';
-/*
-  Generated class for the Post page.
+import { HomePage } from '../home/home';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 class Post{
   title: string
   body: string
@@ -27,8 +23,12 @@ post: Post = new Post()
   submit(){
     this.af.database.list('/posts').push(this.post)
     this.post = new Post()
-    this.navCtrl.parent.select(0)
+    this.navCtrl.setRoot(HomePage)
 
+  }
+
+  return(){
+    this.navCtrl.setRoot(HomePage)
   }
 
 

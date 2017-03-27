@@ -11,6 +11,7 @@
 </ion-header>
 
 <ion-content padding>
+  <p>Hi there, {{username}}</p>
   <ion-card *ngFor="let card of posts | async">
     <ion-card-content>
       <ion-card-title>
@@ -21,4 +22,9 @@
       </p>
     </ion-card-content>
   </ion-card>
+  <ion-buttons>
+    <button class="newPost" ion-button (click)="newPost()">
+      <ion-icon name="add-circle"></ion-icon>
+    </button>
+  </ion-buttons>
 </ion-content>

@@ -6,15 +6,19 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
 import { PostPage } from '../pages/post/post';
 import { InfoPage } from '../pages/user-info/user-info';
+import { LogInPage } from '../pages/user-log-in/user-log-in';
+import { AuthService } from '../providers/auth-service';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = LogInPage;
+  moduleId: string;
   @ViewChild(Nav) nav: Nav;
 
-  constructor(platform: Platform) {
+  constructor(platform: Platform, public auth: AuthService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -22,16 +26,19 @@ export class MyApp {
       Splashscreen.hide();
     });
   }
-  go_to_broadcasts(Page){
+  public go_to_broadcasts(Page){
   this.nav.setRoot(HomePage);
   }
 
-  go_to_userInfo(Page){
+  public go_to_userInfo(Page){
   this.nav.setRoot(InfoPage)
   }
 
-  go_to_group(Page){
+  public go_to_group(Page){
     this.nav.setRoot(GroupsPage)
 
   }
-}
+  public logout(Page) {
+    this.nav.setRoot(LogInPage)
+   }
+ }

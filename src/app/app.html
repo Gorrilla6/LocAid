@@ -1,7 +1,7 @@
 <ion-menu side="left" [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title> LocAid </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -16,6 +16,11 @@
         My Info
       </ion-item>
     </ion-list>
+    <ion-buttons>
+    <button ion-button (click)="logout()" menuClose>
+      <ion-icon name="log-out"></ion-icon>
+    </button>
+  </ion-buttons>
   </ion-content>
 </ion-menu>
 

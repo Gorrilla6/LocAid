@@ -1,0 +1,42 @@
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img src="assets/images/LogIn_Logo.png"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <ion-content [attr.noScroll]="shouldScroll" padding>
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+      <ion-item>
+
+        <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+          placeholder="Email"
+          [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && (emailChanged || submitAttempt)">
+        <p>Please enter a valid email.</p>
+      </ion-item>
+      <ion-item>
+
+        <ion-input #password formControlName="password" type="password" (change)="elementChanged(password)"
+          placeholder="Password"
+          [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+        <p>Incorrect password. Did you change it?</p>
+      </ion-item>
+      <button ion-button block type="submit">
+        Login
+      </button>
+    </form>
+
+    <button ion-button block clear (click)="register()">
+      Register Now
+    </button>
+    <button ion-button block clear (click)="resetPwd()">
+      Forgot Password
+    </button>
+  </ion-content>
